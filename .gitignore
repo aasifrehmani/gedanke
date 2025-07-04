@@ -1,0 +1,18 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Django secret files
+.env
+*.log
+
+# Virtual environment
+.venv/
+
+# VS Code
+.vscode/
+
+# Static and media (optional, for development)
+staticfiles/
+media/
