@@ -1,0 +1,49 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}Register{% endblock %}
+
+<!-- Conten block Start -->
+{% block content %}
+
+
+<!-- Login form start -->
+<section class="contact-form-wrap section bg-gray">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 col-md-12 col-sm-12 offset-lg-3">
+                 <form id="contact-form" class="contact__form" method="post" action="">
+                 <!-- form message -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="alert alert-success contact__msg" style="display: none" role="alert">
+                                Your message was sent successfully.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end message -->                    
+                    <h3 class="text-md mb-4 text-center">Register Form</h3>
+                    <div class="form-group">
+                        <input name="name" type="text" class="form-control" placeholder="User Name">
+                    </div>
+                    <div class="form-group">
+                        <input name="email" type="email" class="form-control" placeholder="Email Address">
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 text-center">
+                            <button class="btn btn-main" name="submit" value="Register" type="submit">Register</button>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 text-center">
+                            <a href="{% url 'loginpage' %}" class="btn btn-main">Login</a>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+{% endblock %}<!-- Conten block end -->
