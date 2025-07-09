@@ -26,6 +26,7 @@
 
   <!-- Custom Stylesheet -->
   {% block custom_css %}
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}">
   {% endblock %}<!-- Custom Stylesheet end -->
 
 </head>
@@ -48,8 +49,8 @@
 				</div>
 				<div class="col-lg-10 col-md-8 text-center text-lg-right text-md-right">
 					<div class="header-top-info">
-						<a href="tel:+92-333-5230100">Call Us : <span>+92-333-5230100</span></a>
-						<a href="mailto:aasif.rehmani@gmail.com" ><i class="fa fa-envelope mr-2"></i><span>aasif.rehmani@gmail.com</span></a>
+						<a href="tel:+92-333-1010100">Call Us : <span>+92-333-1010100</span></a>
+						<a href="mailto:support@gedanke.com" ><i class="fa fa-envelope mr-2"></i><span>support@gedanke.com</span></a>
 					</div>
 				</div>
 			</div>
@@ -74,11 +75,14 @@
 			  </li>
 			  <li class="nav-item"><a class="nav-link" href="{% url 'aboutpage' %}">About</a></li>			  
 			  <li class="nav-item"><a class="nav-link" href="{% url 'bloghome' %}">Blog</a></li>
-			  <li class="nav-item"><a class="nav-link" href="{% url 'contactpage' %}">Contact</a></li>
-			  <li class="nav-item"><a class="nav-link" href="{% url 'dashboardhome' %}">Dashboard</a></li>
-			  <li class="nav-item"><a class="nav-link" href="{% url 'loginpage' %}">Login</a></li>
-			  <li class="nav-item"><a class="nav-link" href="{% url 'contactpage' %}">Logout</a></li>
-			  <li class="nav-item"><a class="nav-link" href="{% url 'registerpage' %}">Register</a></li>
+			  <li class="nav-item"><a class="nav-link" href="{% url 'contactpage' %}">Contact</a></li>			  
+			  {% if user.is_authenticated %}
+				<!-- <li class="nav-item"><a class="nav-link" href="{% url 'dashboardhome' %}">Dashboard</a></li> -->
+				<li class="nav-item"><a class="nav-link" href="{% url 'user_dashboard' %}">Dashboard</a></li> 	
+				<li class="nav-item"><a class="nav-link" href="{% url 'userlogout' %}">Logout</a></li>
+			  {% else %}
+			  	<li class="nav-item"><a class="nav-link" href="{% url 'loginpage' %}">Login</a></li>
+			  {% endif %}
 			</ul>
             {% endblock %}
 

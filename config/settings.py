@@ -127,3 +127,15 @@ STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Errors defination for boostratp compatibility
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+            messages.DEBUG: 'info',
+            messages.INFO: 'info',
+            messages.SUCCESS: 'success',
+            messages.WARNING: 'warning',
+            messages.ERROR: 'danger',
+        }

@@ -1,23 +1,34 @@
 {% extends 'main.html' %}
 {% load static %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Register{% endblock %}
 
 <!-- Conten block Start -->
 {% block content %}
 
-
 <!-- Login form start -->
 <section class="contact-form-wrap section">
     <div class="container">
+
+        <div class="row">
+            {% if users %}
+                {% for usr in users %}
+                <div class="col-lg-6 col-md-12 col-sm-12 offset-lg-3">
+                    {{ usr.username }} {{ usr.email }}
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
         <div class="row">
 
             <div class="col-lg-6 col-md-12 col-sm-12 offset-lg-3">
-                 <form id="contact-form" class="" method="post" action="{% url 'loginpage' %}">                    
-                    {% csrf_token %}
-                    <h3 class="text-md mb-4 text-center">Login Form</h3>
+                
+                 <form id="contact-form" class="" method="post" action="{% url 'user_register' %}">
+                    <h3 class="text-md mb-4 text-center">Register User</h3>
+                    
                     <!-- form message -->
-                     {% if messages %}
+                    {% if messages %}
                     <div class="row">
                         {% for message in messages %}
                         <div class="col-12">
@@ -29,21 +40,19 @@
                     </div>
                     {% endif %}
                     <!-- end message -->
-                    <div class="form-group">
-                        <input name="username" type="text" class="form-control" placeholder="User Name">
-                    </div>
-                    <div class="form-group">
-                        <input name="password" type="password" class="form-control" placeholder="User password">
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12 text-center">
-                            <button class="btn btn-main" name="submit" value="Login" type="submit">Login</button>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 text-center">
-                            <a href="{% url 'user_register' %}" class="btn btn-main">Register</a>
-                        </div>
-                    </div>
                     
+                    {% csrf_token %}
+                    {{ frm_register.as_p }}
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 text-center">                            
+                            <input type="submit" class="btn btn-main" value="Register">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 text-center">
+                            <a href="{% url 'loginpage' %}" class="btn btn-main">Login</a>
+                        </div>
+                    </div>
+
                 </form>
             </div>
             
